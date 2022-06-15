@@ -1,5 +1,45 @@
-//all of my arrays
 
+//restDB variables
+var foodURL = "https://majorwork-d533.restdb.io/rest/menu-items"
+var apikey = "629eaf96c4d5c3756d35a5e5"
+
+//Menu display thingy
+function getFood(url,apikey){
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": url,
+        "method": "GET",
+        "headers": {
+            "content-type": "application/json",
+            "x-apikey": apikey,
+            "cache-control": "no-cache"
+        }
+    }
+    
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+        var foodItems = '<div class="foodContainer" id="foodContainer">'
+        for(var i=0; i<response.length; i++){
+            console.log(response[i].itemName);
+            foodItems += '<div class="food" id=" '+ response[i]._id + '">' 
+            foodItems += '<div class="itemName" id=" ' + response[i].itemName + '">' + response[i].itemName + '</div>'
+            foodItems += '<div class="price"> '+ " price: $" + response[i].price + '</div>'
+            foodItems += "quantity: " + '<input type="number" id="quantity' + response[i]._id + '" class="quantity" min="1" max="5" value="0">'
+            foodItems += "</div>";
+            //<img src="' + response[i].ImgURL + '">' + response[i].Name + 
+            
+            
+            
+        }
+        foodItems += "</div>"
+        $("body").append(foodItems);
+    });
+}
+
+getFood(foodURL,apikey);
+
+//all of my arrays
 var arrCoffeeTypes = ["espresso", "long black", "flat white", "latte", "cappuccino", "mocha", "chai latte", "dirty chai", "hot chocolate", "babycino"];
 
 var arrMilkTypes = ["full-fat", "skim", "soy", "almond", "oat"];
@@ -7,6 +47,8 @@ var arrMilkTypes = ["full-fat", "skim", "soy", "almond", "oat"];
 var arrSize = ["small", "medium", "large"];
 
 var arrTempLevel = ["iced", "warm", "normal", "extra hot", "super-duper hot"];
+
+var arrFullOrder = [" "]
 
 //calling arrays to display in drop-down menus
 
@@ -53,6 +95,7 @@ $("#homePage").show();
 $("#viewMenu").hide();
 $("#orderHere").hide();
 $("#aboutUs").hide();
+$("#foodContainer").hide();
 
 function resetActiveNav() {
     document.getElementById("homeTab").classList.remove("active")
@@ -68,6 +111,7 @@ $("#homeTab").click(function () {
     $("#orderHere").hide();
     $("#aboutUs").hide();
     $("#homePage").show();
+    $("#foodContainer").hide();
 });
 
 $("#ourMenu").click(function () {
@@ -77,6 +121,8 @@ $("#ourMenu").click(function () {
     $("#orderHere").hide();
     $("#aboutUs").hide();
     $("#viewMenu").show();
+    $("#foodContainer").show();
+    $("#foodContainer").css("display","flex");
 });
 
 $("#orderForm").click(function () {
@@ -86,6 +132,7 @@ $("#orderForm").click(function () {
     $("#homePage").hide();
     $("#aboutUs").hide();
     $("#orderHere").show();
+    $("#foodContainer").hide();
 });
 $("#aboutCafe").click(function () {
     resetActiveNav();
@@ -94,6 +141,7 @@ $("#aboutCafe").click(function () {
     $("#orderHere").hide();
     $("#homePage").hide();
     $("#aboutUs").show();
+    $("#foodContainer").hide();
 
 });
 
