@@ -73,6 +73,7 @@ body{
   flex-direction: row;
   flex-wrap: wrap;
   display: none;
+  margin-top: 100px;
 }
 
 .itemName{
@@ -87,4 +88,11 @@ body{
 
 .quantity{
   font-size: 12pt;
+  margin-left: 15px;
+}
+
+#sortBy{
+  position: absolute;
+  right: 20px;
+  text-align: center;
 }
