@@ -39,9 +39,6 @@ function getFood(url,apikey){
     
     $.ajax(settings).done(function (response) {
         console.log(response);
-        // TODO: Sort food items first
-        selectionSort(response)
-
         var foodItems = '<div class="foodContainer" id="foodContainer">'
         for(var i=0; i<response.length; i++){
             console.log(response[i].itemName);
@@ -58,6 +55,7 @@ function getFood(url,apikey){
 }
 
 getFood(foodURL,apikey);
+
 
 //TODO: On dropdown change, call getFood again. Make sure to clean the current html
 
