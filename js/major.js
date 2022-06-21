@@ -3,6 +3,26 @@
 var foodURL = "https://majorwork-d533.restdb.io/rest/menu-items"
 var apikey = "629eaf96c4d5c3756d35a5e5"
 
+function selectionSort(theMenu){
+    var pass=0;
+    while(pass < theMenu.length){
+        var count = pass + 1;
+        var minimum = pass
+        console.log(theMenu[count].price );
+        while(count <= theMenu.length){
+            if(theMenu[count].price < theMenu[minimum].price){
+                minimum = count;
+            };
+            count = count + 1;
+        };
+        var tempItem = theMenu[minimum].price;
+        theMenu[minimum].price = theMenu[pass].price;
+        theMenu[pass].price = tempItem;
+        pass = pass + 1;
+    };
+    return theMenu;
+};
+
 //Menu display thingy
 function getFood(url,apikey){
     var settings = {
@@ -19,6 +39,9 @@ function getFood(url,apikey){
     
     $.ajax(settings).done(function (response) {
         console.log(response);
+        // TODO: Sort food items first
+        selectionSort(response)
+
         var foodItems = '<div class="foodContainer" id="foodContainer">'
         for(var i=0; i<response.length; i++){
             console.log(response[i].itemName);
@@ -28,9 +51,6 @@ function getFood(url,apikey){
             foodItems += '<div class="quantity">' + "quantity: " + '<input type="number" id="quantity' + response[i]._id + '" class="quantity" min="1" max="5" value="0"> </div>' 
             foodItems += "</div>";
             //<img src="' + response[i].ImgURL + '">' + response[i].Name + 
-            
-            
-            
         }
         foodItems += "</div>"
         $("body").append(foodItems);
@@ -38,6 +58,8 @@ function getFood(url,apikey){
 }
 
 getFood(foodURL,apikey);
+
+//TODO: On dropdown change, call getFood again. Make sure to clean the current html
 
 //all of my arrays
 var arrCoffeeTypes = ["espresso", "long black", "flat white", "latte", "cappuccino", "mocha", "chai latte", "dirty chai", "hot chocolate", "babycino"];
@@ -174,3 +196,13 @@ $("#completeOrder").click(function () {
     }
 })
 
+//Coding the sorts for the selector
+
+
+
+
+//actual sorting of db
+
+if(document.getElementById("sortMenuBy")== document.getElementById("alphabetical")){
+    selectionSort(foodURL, itemName)
+}
