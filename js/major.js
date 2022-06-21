@@ -3,24 +3,20 @@
 var foodURL = "https://majorwork-d533.restdb.io/rest/menu-items"
 var apikey = "629eaf96c4d5c3756d35a5e5"
 
-function selectionSort(theMenu){
-    var pass=0;
-    while(pass < theMenu.length){
-        var count = pass + 1;
-        var minimum = pass
-        console.log(theMenu[count].price);
-        while(count <= theMenu.length){
-            if(theMenu[count].price < theMenu[minimum].price){
-                minimum = count;
-            };
-            count = count + 1;
-        };
-        var tempItem = theMenu[minimum].price;
-        theMenu[minimum].price = theMenu[pass].price;
-        theMenu[pass].price = tempItem;
-        pass = pass + 1;
-    };
-    return theMenu;
+function selectionSort(array){
+    for(var i = 0; i <array.length; i++){
+        //store smallest index
+        var min = i;
+        for(var j = i+1; j < array.length; j++){
+            if(array[j]<array[min]){
+                min = j;
+            }
+        }
+        var temp = array[i];
+        array[i] = array[min];
+        array[min] = temp;
+    }
+    return array;
 };
 
 //Menu display thingy
