@@ -8,7 +8,7 @@ function selectionSort(theMenu){
     while(pass < theMenu.length){
         var count = pass + 1;
         var minimum = pass
-        console.log(theMenu[count].price );
+        console.log(theMenu[count].price);
         while(count <= theMenu.length){
             if(theMenu[count].price < theMenu[minimum].price){
                 minimum = count;
@@ -39,6 +39,7 @@ function getFood(url,apikey){
     
     $.ajax(settings).done(function (response) {
         console.log(response);
+        selectionSort(response);
         var foodItems = '<div class="foodContainer" id="foodContainer">'
         for(var i=0; i<response.length; i++){
             console.log(response[i].itemName);
