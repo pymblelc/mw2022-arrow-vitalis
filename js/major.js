@@ -3,14 +3,22 @@
 var foodURL = "https://majorwork-d533.restdb.io/rest/menu-items"
 var apikey = "629eaf96c4d5c3756d35a5e5"
 
-function selectionSort(array){
+function selectionSort(array, direction){
     for(var i = 0; i <array.length; i++){
         //store smallest index
         var min = i;
         for(var j = i+1; j < array.length; j++){
-            if(array[j].price<array[min].price){
-                min = j;
+            if(direction=='low'){
+                if(array[j].price<array[min].price){
+                    min = j;
+                }
+
+            }else{
+                if(array[j].price>array[min].price){
+                    min = j;
+                }
             }
+            
         }
         var temp = array[i];
         array[i] = array[min];
@@ -35,7 +43,7 @@ function getFood(url,apikey){
     
     $.ajax(settings).done(function (response) {
         console.log(response);
-        selectionSort(response);
+        selectionSort(response,$('#sortMenuBy').val());
         var foodItems = '<div class="foodContainer" id="foodContainer">'
         for(var i=0; i<response.length; i++){
             console.log(response[i].itemName);
@@ -55,6 +63,7 @@ getFood(foodURL,apikey);
 
 
 //TODO: On dropdown change, call getFood again. Make sure to clean the current html
+
 
 //all of my arrays
 var arrCoffeeTypes = ["espresso", "long black", "flat white", "latte", "cappuccino", "mocha", "chai latte", "dirty chai", "hot chocolate", "babycino"];
