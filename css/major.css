@@ -95,6 +95,9 @@ body{
   position: absolute;
   right: 20px;
   text-align: center;
+}
+
+#sortMenuBy{
   cursor: pointer;
 }
 
