@@ -29,6 +29,7 @@ function selectionSort(array, direction){
 
 //Menu display thingy
 function getFood(url,apikey){
+    $("body").css("cursor", "progress");
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -55,6 +56,7 @@ function getFood(url,apikey){
             //<img src="' + response[i].ImgURL + '">' + response[i].Name + 
         }
         $("#foodContainer").html(foodItems);
+        $("body").css("cursor", "default");
     });
 }
 
