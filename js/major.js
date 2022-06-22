@@ -87,6 +87,14 @@ function binarySearch(arrayToSearch, searchTerm){
     };
 };
 
+//getting the thing to search when it needs to
+$('#timeToSearch').click({
+    binarySearch(foodURL, )
+
+
+}
+)
+
 
 //all of my arrays
 var arrCoffeeTypes = ["espresso", "long black", "flat white", "latte", "cappuccino", "mocha", "chai latte", "dirty chai", "hot chocolate", "babycino"];
