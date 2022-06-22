@@ -44,7 +44,7 @@ function getFood(url,apikey){
     $.ajax(settings).done(function (response) {
         console.log(response);
         selectionSort(response,$('#sortMenuBy').val());
-        var foodItems = '<div class="foodContainer" id="foodContainer">'
+        var foodItems = ''
         for(var i=0; i<response.length; i++){
             console.log(response[i].itemName);
             foodItems += '<div class="food" id=" '+ response[i]._id + '">' 
@@ -54,8 +54,7 @@ function getFood(url,apikey){
             foodItems += "</div>";
             //<img src="' + response[i].ImgURL + '">' + response[i].Name + 
         }
-        foodItems += "</div>"
-        $("body").append(foodItems);
+        $("#foodContainer").html(foodItems);
     });
 }
 
