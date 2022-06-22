@@ -99,4 +99,5 @@ body{
 
 #timeToSearch{
   text-align: center;
+  cursor: pointer;
 }
