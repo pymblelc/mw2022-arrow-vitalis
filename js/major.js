@@ -3,6 +3,7 @@
 var foodURL = "https://majorwork-d533.restdb.io/rest/menu-items"
 var apikey = "629eaf96c4d5c3756d35a5e5"
 
+//sort function
 function selectionSort(array, direction){
     for(var i = 0; i <array.length; i++){
         //store smallest index
@@ -59,15 +60,33 @@ function getFood(url,apikey){
         $("body").css("cursor", "default");
     });
 }
-
-
 getFood(foodURL,apikey);
 
-
-//TODO: On dropdown change, call getFood again. Make sure to clean the current html
+//On dropdown change, call getFood again. Make sure to clean the current html
 $('#sortMenuBy').change(function(){
     getFood(foodURL,apikey);
 })
+
+//search function
+function binarySearch(arrayToSearch, searchTerm){
+    var low = 0;
+    var high = arrayToSearch.length;
+    found = false;
+    while(high>=low && found==false){
+        var middle = parseInt((low+high)/2);
+        if(searchTerm < arrayToSearch[middle]){
+            high = middle - 1;
+        }else{
+            if(searchTerm == arrayToSearch[middle]){
+                found = true;
+            }
+            else{
+                low = middle + 1;
+            }
+        };
+    };
+};
+
 
 //all of my arrays
 var arrCoffeeTypes = ["espresso", "long black", "flat white", "latte", "cappuccino", "mocha", "chai latte", "dirty chai", "hot chocolate", "babycino"];
