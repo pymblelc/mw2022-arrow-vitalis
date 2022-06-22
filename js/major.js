@@ -63,7 +63,9 @@ getFood(foodURL,apikey);
 
 
 //TODO: On dropdown change, call getFood again. Make sure to clean the current html
-
+$('#sortMenuBy').change(function(){
+    getFood(foodURL,apikey);
+})
 
 //all of my arrays
 var arrCoffeeTypes = ["espresso", "long black", "flat white", "latte", "cappuccino", "mocha", "chai latte", "dirty chai", "hot chocolate", "babycino"];
