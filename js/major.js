@@ -8,7 +8,7 @@ function selectionSort(array){
         //store smallest index
         var min = i;
         for(var j = i+1; j < array.length; j++){
-            if(array[j]<array[min]){
+            if(array[j].price<array[min].price){
                 min = j;
             }
         }
