@@ -88,12 +88,12 @@ function binarySearch(arrayToSearch, searchTerm){
 };
 
 //getting the thing to search when it needs to
+
+var searchBarTerm = document.getElementById('#searchBar').value;
+
 $('#timeToSearch').click({
-    binarySearch(foodURL, )
-
-
-}
-)
+    binarySearch(foodURL, searchBarTerm)
+});
 
 
 //all of my arrays
