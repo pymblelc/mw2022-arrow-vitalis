@@ -79,6 +79,7 @@ function binarySearch(arrayToSearch, searchTerm){
         }else{
             if(searchTerm == arrayToSearch[middle]){
                 found = true;
+                console.log("item found")
             }
             else{
                 low = middle + 1;
