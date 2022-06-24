@@ -87,12 +87,11 @@ function binarySearch(arrayToSearch, searchTerm){
     };
 };
 
-//getting the thing to search when it needs to
-
 var searchBarTerm = document.getElementById('#searchBar').value;
 
-$('#timeToSearch').click({
-    binarySearch(foodURL, searchBarTerm)
+//getting the thing to search when it needs to
+$('#timeToSearch').click(function() {
+    binarySearch(foodURL, searchBarTerm);
 });
 
 
