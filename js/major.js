@@ -87,7 +87,7 @@ function binarySearch(arrayToSearch, searchTerm){
     };
 };
 
-var searchBarTerm = document.getElementById('#searchBar').value;
+var searchBarTerm = document.getElementById('searchBar').value;
 
 //getting the thing to search when it needs to
 $('#timeToSearch').click(function() {
