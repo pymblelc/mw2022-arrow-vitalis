@@ -169,6 +169,7 @@ $("#homeTab").click(function () {
     $("#aboutUs").hide();
     $("#homePage").show();
     $("#foodContainer").hide();
+    $("#searchBarDiv").hide();
 });
 
 $("#ourMenu").click(function () {
@@ -180,6 +181,7 @@ $("#ourMenu").click(function () {
     $("#viewMenu").show();
     $("#foodContainer").show();
     $("#foodContainer").css("display","flex");
+    $("#searchBarDiv").show();
 });
 
 $("#orderForm").click(function () {
@@ -190,6 +192,7 @@ $("#orderForm").click(function () {
     $("#aboutUs").hide();
     $("#orderHere").show();
     $("#foodContainer").hide();
+    $("#searchBarDiv").hide();
 });
 $("#aboutCafe").click(function () {
     resetActiveNav();
@@ -199,6 +202,7 @@ $("#aboutCafe").click(function () {
     $("#homePage").hide();
     $("#aboutUs").show();
     $("#foodContainer").hide();
+    $("#searchBarDiv").hide();
 
 });
 
