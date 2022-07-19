@@ -105,3 +105,11 @@ body{
   text-align: center;
   cursor: pointer;
 }
+
+#itemNotThere{
+  font-size: 20px;
+  position: absolute;
+  text-align: center;
+  
+
+}
