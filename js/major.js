@@ -73,6 +73,8 @@ function binarySearch(arrayToSearch, searchTerm){
     var high = arrayToSearch.length;
     found = false;
     while(high>=low && found==false){
+        console.log(high);
+        console.log(low);
         var middle = parseInt((low+high)/2);
         if(searchTerm < arrayToSearch[middle]){
             high = middle - 1;
