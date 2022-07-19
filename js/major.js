@@ -75,6 +75,9 @@ function linearSearch(arrayToSearch, searchTerm){
             break;
         }else{
             console.log("item not found");
+            $("#itemNotThere").show();
+            $("#foodContainer").hide();
+
         };
     };
 };
@@ -83,15 +86,7 @@ var searchBarTerm = document.getElementById('searchBar').value;
 
 //getting the thing to search when it needs to
 $('#timeToSearch').click(function() {
-    binarySearch(foodURL, searchBarTerm);
-    if(middle == searchBarTerm){
-        
-
-
-    }else{
-        $("#foodContainer").hide();
-        $("#itemNotThere").show();
-    }
+    linearSearch(foodURL, searchBarTerm);
 });
 
 
