@@ -68,24 +68,13 @@ $('#sortMenuBy').change(function(){
 })
 
 //search function
-function binarySearch(arrayToSearch, searchTerm){
-    var low = 0;
-    var high = arrayToSearch.length;
-    found = false;
-    while(high>=low && found==false){
-        console.log(high);
-        console.log(low);
-        var middle = parseInt((low+high)/2);
-        if(searchTerm < arrayToSearch[middle]){
-            high = middle - 1;
+function linearSearch(arrayToSearch, searchTerm){
+    for (var i = 0; i<arrayToSearch.length; i++){
+        if (arrayToSearch[i] == searchTerm){
+            console.log('item found in position: ' + i);
+            break;
         }else{
-            if(searchTerm == arrayToSearch[middle]){
-                found = true;
-                console.log("item found")
-            }
-            else{
-                low = middle + 1;
-            }
+            console.log("item not found");
         };
     };
 };
@@ -95,7 +84,9 @@ var searchBarTerm = document.getElementById('searchBar').value;
 //getting the thing to search when it needs to
 $('#timeToSearch').click(function() {
     binarySearch(foodURL, searchBarTerm);
-    if(middle = searchBarTerm){
+    if(middle == searchBarTerm){
+        
+
 
     }else{
         $("#foodContainer").hide();
