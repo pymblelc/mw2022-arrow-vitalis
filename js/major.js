@@ -74,7 +74,6 @@ function linearSearch(arrayToSearch, searchTerm){
             console.log('item found in position: ' + i);
             $(document.getElementsByClassName('food')).hide();
             $("#" + searchTerm[i]._id).show();
-
             break;
         }else{
             console.log("item not found");
