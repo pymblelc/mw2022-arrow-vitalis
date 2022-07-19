@@ -70,7 +70,7 @@ $('#sortMenuBy').change(function(){
 //search function
 function linearSearch(arrayToSearch, searchTerm){
     for (var i = 0; i<arrayToSearch.length; i++){
-        if (arrayToSearch[i].value == searchTerm){
+        if (arrayToSearch[i].itemName == searchTerm){
             console.log('item found in position: ' + i);
             $(document.getElementsByClassName('food')).hide();
             $("#" + searchTerm[i]._id).show();
