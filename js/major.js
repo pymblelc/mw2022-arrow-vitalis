@@ -235,13 +235,13 @@ $("#completeOrder").click(function () {
     }
 })
 
-//Coding the sorts for the selector
-
-
-
-
 //actual sorting of db
 
 if(document.getElementById("sortMenuBy")== document.getElementById("alphabetical")){
     selectionSort(foodURL, itemName)
 }
+
+//adding food items to the order
+
+//adding a send full order 
+
