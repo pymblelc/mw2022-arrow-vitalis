@@ -48,7 +48,7 @@ function getFood(url,apikey){
         selectionSort(response,$('#sortMenuBy').val());
         var foodItems = ''
         for(var i=0; i<response.length; i++){
-            console.log(response[i].itemName);
+            console.log(response[i].value);
             foodItems += '<div class="food" id=" '+ response[i]._id + '">' 
             foodItems += '<div class="itemName" id=" ' + response[i].itemName + '">' + response[i].itemName + '</div>'
             foodItems += '<div class="price"> '+ " price: $" + response[i].price + '</div>'
