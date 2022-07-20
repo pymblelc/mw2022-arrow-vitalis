@@ -2,6 +2,7 @@
 //restDB variables
 var foodURL = "https://majorwork-d533.restdb.io/rest/menu-items"
 var apikey = "629eaf96c4d5c3756d35a5e5"
+var arrFoods;
 
 //sort function
 function selectionSort(array, direction){
@@ -44,12 +45,13 @@ function getFood(url,apikey){
     }
     
     $.ajax(settings).done(function (response) {
+        arrFoods = response;
         console.log(response);
         selectionSort(response,$('#sortMenuBy').val());
         var foodItems = ''
         for(var i=0; i<response.length; i++){
             console.log(response[i].itemName);
-            foodItems += '<div class="food" id=" '+ response[i]._id + '">' 
+            foodItems += '<div class="food" id="'+ response[i]._id + '">' 
             foodItems += '<div class="itemName" id=" ' + response[i].itemName + '">' + response[i].itemName + '</div>'
             foodItems += '<div class="price"> '+ " price: $" + response[i].price + '</div>'
             foodItems += '<div class="quantity">' + "quantity: " + '<input type="number" id="quantity' + response[i]._id + '" class="quantity" min="1" max="5" value="0"> </div>' 
@@ -70,11 +72,12 @@ $('#sortMenuBy').change(function(){
 //search function
 function linearSearch(arrayToSearch, searchTerm){
     for (var i = 0; i<arrayToSearch.length; i++){
-        console.log("current item:" + searchTerm[i])
-        if (arrayToSearch[i].value == searchTerm){
+        console.log("current item:" + searchTerm);
+        console.log(arrayToSearch[i]);
+        if (arrayToSearch[i].itemName == searchTerm){
             console.log('item found in position: ' + i);
             $(document.getElementsByClassName('food')).hide();
-            $("#" + searchTerm[i]._id).show();
+            $("#" + arrayToSearch[i]._id).show();
             break;
         }else{
             console.log("item not found");
@@ -85,11 +88,11 @@ function linearSearch(arrayToSearch, searchTerm){
     };
 };
 
-var searchBarTerm = document.getElementById('searchBar').value;
 
 //getting the thing to search when it needs to
 $('#timeToSearch').click(function() {
-    linearSearch(foodURL, searchBarTerm);
+    let searchBarTerm = document.getElementById('searchBar').value;
+    linearSearch(arrFoods, searchBarTerm);
 });
 
 
