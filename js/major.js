@@ -48,7 +48,7 @@ function getFood(url,apikey){
         selectionSort(response,$('#sortMenuBy').val());
         var foodItems = ''
         for(var i=0; i<response.length; i++){
-            console.log(response[i].value);
+            console.log(response[i].itemName);
             foodItems += '<div class="food" id=" '+ response[i]._id + '">' 
             foodItems += '<div class="itemName" id=" ' + response[i].itemName + '">' + response[i].itemName + '</div>'
             foodItems += '<div class="price"> '+ " price: $" + response[i].price + '</div>'
@@ -71,7 +71,7 @@ $('#sortMenuBy').change(function(){
 function linearSearch(arrayToSearch, searchTerm){
     for (var i = 0; i<arrayToSearch.length; i++){
         console.log("current item:" + searchTerm[i])
-        if (arrayToSearch[i].itemName == searchTerm){
+        if (arrayToSearch[i].value == searchTerm){
             console.log('item found in position: ' + i);
             $(document.getElementsByClassName('food')).hide();
             $("#" + searchTerm[i]._id).show();
