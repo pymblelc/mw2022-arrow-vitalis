@@ -55,6 +55,7 @@ function getFood(url,apikey){
             foodItems += '<div class="itemName" id=" ' + response[i].itemName + '">' + response[i].itemName + '</div>'
             foodItems += '<div class="price"> '+ " price: $" + response[i].price + '</div>'
             foodItems += '<div class="quantity">' + "quantity: " + '<input type="number" id="quantity' + response[i]._id + '" class="quantity" min="1" max="5" value="0"> </div>' 
+            foodItems += '<div>' + "<button type= " + '"addToOrder" class=' + '"addToCustomer">' + 'order' + "</button>" + "</div>"
             foodItems += "</div>";
             //<img src="' + response[i].ImgURL + '">' + response[i].Name + 
         }
