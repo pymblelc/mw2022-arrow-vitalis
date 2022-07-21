@@ -91,6 +91,11 @@ body{
   margin-left: 15px;
 }
 
+.addToCustomer{
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
 #sortBy{
   position: absolute;
   right: 20px;
@@ -113,3 +118,4 @@ body{
   margin-top: 20px;
 
 }
+
