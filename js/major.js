@@ -248,6 +248,10 @@ if(document.getElementById("sortMenuBy")== document.getElementById("alphabetical
 }
 
 //adding food items to the order
+ $(document.getElementsByClassName("addToCustomer")).click(function() {
+    console.log()
+ })
+
 
 //adding a send full order 
 
