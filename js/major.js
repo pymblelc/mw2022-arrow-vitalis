@@ -187,6 +187,8 @@ $("#aboutUs").hide();
 $("#finalOrderToSend").hide();
 $("#foodContainer").hide();
 $("#itemNotThere").hide();
+$("#fullOrderArray").hide();
+$("#finalOrderComplete").hide();
 
 function resetActiveNav() {
     document.getElementById("homeTab").classList.remove("active")
@@ -207,6 +209,8 @@ $("#homeTab").click(function () {
     $("#searchBarDiv").hide();
     $("#itemNotThere").hide();
     $("#finalOrderToSend").hide();
+    $("#fullOrderArray").hide();
+    $("#finalOrderComplete").hide();
 });
 
 $("#ourMenu").click(function () {
@@ -221,6 +225,8 @@ $("#ourMenu").click(function () {
     $("#searchBarDiv").show();
     $("#itemNotThere").hide();
     $("#finalOrderToSend").hide();
+    $("#fullOrderArray").hide();
+    $("#finalOrderComplete").hide();
 });
 
 $("#orderForm").click(function () {
@@ -234,6 +240,8 @@ $("#orderForm").click(function () {
     $("#searchBarDiv").hide();
     $("#itemNotThere").hide();
     $("#finalOrderToSend").hide();
+    $("#fullOrderArray").hide();
+    $("#finalOrderComplete").hide();
 });
 $("#aboutCafe").click(function () {
     resetActiveNav();
@@ -246,6 +254,8 @@ $("#aboutCafe").click(function () {
     $("#searchBarDiv").hide();
     $("#itemNotThere").hide();
     $("#finalOrderToSend").hide();
+    $("#fullOrderArray").hide();
+    $("#finalOrderComplete").hide();
 
 });
 
@@ -260,6 +270,8 @@ $("#finalOrder").click(function () {
     $("#searchBarDiv").hide();
     $("#itemNotThere").hide();
     $("#finalOrderToSend").show();
+    $("#fullOrderArray").show();
+    $("#finalOrderComplete").show();
 });
 
 
