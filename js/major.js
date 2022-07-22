@@ -63,12 +63,12 @@ function getFood(url,apikey){
         $("body").css("cursor", "default");
         for(var i=0; i<response.length; i++){
             const callback = function() {
-                arrFullOrder.push({
+                arrFullFoodOrder.push({
                     name: this.itemName,
                     quantity: document.getElementById("quantity" + this._id).value
                 });
 
-                console.log(arrFullOrder);
+                console.log(arrFullFoodOrder);
             };
             document.getElementById(response[i]._id).addEventListener("click", callback.bind(response[i]));
         }
@@ -119,7 +119,7 @@ var arrTempLevel = ["iced", "warm", "normal", "extra hot", "super-duper hot"];
 
 var arrFullDrinkOrder = [];
 
-var arrFullOrder = [];
+var arrFullFoodOrder = [];
 
 //calling arrays to display in drop-down menus
 
@@ -283,35 +283,6 @@ $("#completeOrder").click(function () {
     if(document.getElementById("paymentOnlineMoney").checked){
         console.log("payment type: " + document.getElementById("paymentOnlineMoney").value)
     }
-    arrFullDrinkOrder.push({
-        customerName: document.getElementById("customerName").value,
-        customerPhone: document.getElementById("customerPhone").value,
-        coffee: document.getElementById("coffeeType").value,
-        milk: document.getElementById("milkType").value,
-        size: document.getElementById("size").value,
-        temperature: document.getElementById("tempLevel").value,
-        sugarAmount: document.getElementById("sugars").value,
-    })
-    if(document.getElementById("decaf").checked){
-        arrFullDrinkOrder.push({
-            Decaf: document.getElementById("decaf").value,
-        })
-    }
-    if(document.getElementById("noDecaf").checked){
-        arrFullDrinkOrder.push({
-            decaf: document.getElementById("noDecaf").value,
-        })
-    }
-    if(document.getElementById("paymentPaperMoney").checked){
-        arrFullDrinkOrder.push({
-            paymentMethod: document.getElementById("paymentPaperMoney").value,
-        })
-    }
-    if(document.getElementById("paymentOnlineMoney").checked){
-        arrFullDrinkOrder.push({
-            paymentMethod: document.getElementById("paymentOnlineMoney").value,
-        })
-    }
 })
 
 //actual sorting of db
@@ -319,25 +290,61 @@ $("#completeOrder").click(function () {
 if(document.getElementById("sortMenuBy")== document.getElementById("alphabetical")){
     selectionSort(foodURL, itemName)
 }
-
+//Filling the final drink order array so it stores the drink order (i think)
+arrFullDrinkOrder.push({
+    customerName: document.getElementById("customerName").value,
+    customerPhone: document.getElementById("customerPhone").value,
+    coffee: document.getElementById("coffeeType").value,
+    milk: document.getElementById("milkType").value,
+    size: document.getElementById("size").value,
+    temperature: document.getElementById("tempLevel").value,
+    sugarAmount: document.getElementById("sugars").value,
+})
+if(document.getElementById("decaf").checked){
+    arrFullDrinkOrder.push({
+        Decaf: document.getElementById("decaf").value,
+    })
+}
+if(document.getElementById("noDecaf").checked){
+    arrFullDrinkOrder.push({
+        decaf: document.getElementById("noDecaf").value,
+    })
+}
+if(document.getElementById("paymentPaperMoney").checked){
+    arrFullDrinkOrder.push({
+        paymentMethod: document.getElementById("paymentPaperMoney").value,
+    })
+}
+if(document.getElementById("paymentOnlineMoney").checked){
+    arrFullDrinkOrder.push({
+        paymentMethod: document.getElementById("paymentOnlineMoney").value,
+    })
+}
 
 
 //adding Full order to final order page
-function displayFinalOrder(){
-    for (var i = 0; i<arrFullOrder.length; i++){
-        var tempString = "<div id='" + arrFullOrder[i] + "' > " + arrFullOrder[i] + " </div>"
-        $("#fullOrderArray").append(tempString);
+function displayFinalFoodOrder(){
+    for (var i = 0; i<arrFullFoodOrder.length; i++){
+        var tempString = "<div id='" + arrFullFoodOrder[i] + "'> " + arrFullFoodOrder[i] + " </div>"
+        console.log(arrFullFoodOrder[i])
+        $("#fullFoodOrderArray").append(tempString);
     }
+};
+
+function displayFinalDrinkOrder(){
     for(var i = 0; i<arrFullDrinkOrder.length; i++){
-        var tempString = "<div id='" + arrFullDrinkOrder[i] + "' > " + arrFullDrinkOrder[i] + " </div>"
-        $("#fullOrderArray").append(tempString);
+        var tempString = "<div id='" + arrFullDrinkOrder[i] + "'> " + arrFullDrinkOrder[i] + " </div>"
+        console.log(arrFullDrinkOrder[i])
+        $("#fullDrinkOrderArray").append(tempString);
     }
-}
-displayFinalOrder();
+};
+
+$("#finalOrder").click(function(){
+    displayFinalFoodOrder();
+    displayFinalDrinkOrder();
+});
 
 //adding a send full order 
 $("#finalOrderFullSend").click(function() {
-    console.log("Final Order: "+ arrFullOrder + arrFullDrinkOrder);
-
-
+    console.log("Final Order: "+ arrFullFoodOrder + arrFullDrinkOrder);
 });
