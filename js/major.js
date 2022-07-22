@@ -83,9 +83,13 @@ function displayFinalOrder(){
         $("#fullOrderArray").append(tempString);
     }
     $("fullOrderArray").append()
+    for(var i = 0; i<arrFullDrinkOrder.length; i++){
+        var tempString = "<div id='" + arrFullDrinkOrder[i] + "' > " + arrFullDrinkOrder[i] + " </div>"
+        $("#fullOrderArray").append(tempString);
+    }
 }
 $("#finalOrderFullSend").click(function() {
-    console.log("Final Order: "+ arrFullOrder);
+    console.log("Final Order: "+ arrFullOrder + arrFullDrinkOrder);
 
 
 });
@@ -303,8 +307,17 @@ $("#completeOrder").click(function () {
         arrFullDrinkOrder.push({
             decaf: document.getElementById("noDecaf").value,
         })
-    };
-
+    }
+    if(document.getElementById("paymentPaperMoney").checked){
+        arrFullDrinkOrder.push({
+            paymentMethod: document.getElementById("paymentPaperMoney").value,
+        })
+    }
+    if(document.getElementById("paymentOnlineMoney").checked){
+        arrFullDrinkOrder.push({
+            paymentMethod: document.getElementById("paymentOnlineMoney").value,
+        })
+    }
 })
 
 //actual sorting of db
