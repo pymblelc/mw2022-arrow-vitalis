@@ -377,5 +377,5 @@ $("#finalOrder").click(function(){
 
 //adding a send full order 
 $("#finalOrderFullSend").click(function() {
-    console.log("Final Order: "+ arrFullFoodOrder + arrFullDrinkOrder);
+    console.log("Final Order is as above");
 });
