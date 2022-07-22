@@ -131,6 +131,8 @@ var arrSize = ["small", "medium", "large"];
 
 var arrTempLevel = ["iced", "warm", "normal", "extra hot", "super-duper hot"];
 
+var arrFullDrinkOrder = [];
+
 var arrFullOrder = [];
 
 //calling arrays to display in drop-down menus
@@ -283,6 +285,26 @@ $("#completeOrder").click(function () {
     if(document.getElementById("paymentOnlineMoney").checked){
         console.log("payment type: " + document.getElementById("paymentOnlineMoney").value)
     }
+    arrFullDrinkOrder.push({
+        customerName: document.getElementById("customerName").value,
+        customerPhone: document.getElementById("customerPhone").value,
+        coffee: document.getElementById("coffeeType").value,
+        milk: document.getElementById("milkType").value,
+        size: document.getElementById("size").value,
+        temperature: document.getElementById("tempLevel").value,
+        sugarAmount: document.getElementById("sugars").value,
+    })
+    if(document.getElementById("decaf").checked){
+        arrFullDrinkOrder.push({
+            Decaf: document.getElementById("decaf").value,
+        })
+    }
+    if(document.getElementById("noDecaf").checked){
+        arrFullDrinkOrder.push({
+            decaf: document.getElementById("noDecaf").value,
+        })
+    };
+
 })
 
 //actual sorting of db
