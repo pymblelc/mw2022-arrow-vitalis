@@ -294,7 +294,7 @@ $("#completeOrder").click(function () {
     })
     if(document.getElementById("decaf").checked){
         arrFullDrinkOrder.push({
-            Decaf: document.getElementById("decaf").value,
+            decaf: document.getElementById("decaf").value,
         })
     }
     if(document.getElementById("noDecaf").checked){
@@ -326,15 +326,23 @@ if(document.getElementById("sortMenuBy")== document.getElementById("alphabetical
 //adding Full order to final order page
 function displayFinalFoodOrder(){
     for (var i = 0; i<arrFullFoodOrder.length; i++){
-        var tempString = "<div id='" + arrFullFoodOrder[i] + "'> " + arrFullFoodOrder[i] + " </div>"
-        console.log(arrFullFoodOrder[i])
+        var tempString = "<div id='" + arrFullFoodOrder[i].name + "'> " + arrFullFoodOrder[i].name + arrFullFoodOrder[i].quantity + " </div>"
+        console.log(tempString)
         $("#fullFoodOrderArray").append(tempString);
     }
 };
 
 function displayFinalDrinkOrder(){
     for(var i = 0; i<arrFullDrinkOrder.length; i++){
-        var tempString = "<div id='" + arrFullDrinkOrder[i] + "'> " + arrFullDrinkOrder[i] + " </div>"
+        var tempString = "<div id='" + arrFullDrinkOrder[i].customerName + "'> Name: " + arrFullDrinkOrder[i].customerName + " </div>"
+        tempString += "<div id='" + arrFullDrinkOrder[i].customerPhone + "'> Phone: " + arrFullDrinkOrder[i].customerPhone + " </div>"
+        tempString += "<div id='" + arrFullDrinkOrder[i].coffee + "'> Drink Type: " + arrFullDrinkOrder[i].coffee + " </div>"
+        tempString += "<div id='" + arrFullDrinkOrder[i].milk + "'> Milk Type: " + arrFullDrinkOrder[i].milk + " </div>"
+        tempString += "<div id='" + arrFullDrinkOrder[i].size + "'> Size: " + arrFullDrinkOrder[i].size + " </div>"
+        tempString += "<div id='" + arrFullDrinkOrder[i].temperature + "'> Temperature: " + arrFullDrinkOrder[i].temperature + " </div>"
+        tempString += "<div id='" + arrFullDrinkOrder[i].sugarAmount + "'> Sugars: " + arrFullDrinkOrder[i].sugarAmount + " </div>"
+        tempString += "<div id='" + arrFullDrinkOrder[i].decaf + "'> Decaf? " + arrFullDrinkOrder[i].decaf + " </div>"
+        tempString += "<div id='" + arrFullDrinkOrder[i].paymentMethod + "'> Payment Method:" + arrFullDrinkOrder[i].paymentMethod + " </div>"
         console.log(arrFullDrinkOrder[i])
         $("#fullDrinkOrderArray").append(tempString);
     }
