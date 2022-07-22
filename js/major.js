@@ -272,16 +272,45 @@ $("#completeOrder").click(function () {
     console.log("the drink temperature is: " + document.getElementById("tempLevel").value)
     if(document.getElementById("decaf").checked){
         console.log("is there decaf? " + document.getElementById("decaf").value)
-    } 
+    };
     if(document.getElementById("noDecaf").checked){
         console.log("is there decaf? " + document.getElementById("noDecaf").value)
     };
     console.log("the amount of sugars is: " + document.getElementById("sugars").value)
     if(document.getElementById("paymentPaperMoney").checked){
         console.log("payment type: " + document.getElementById("paymentPaperMoney").value)
-    } 
+    };
     if(document.getElementById("paymentOnlineMoney").checked){
         console.log("payment type: " + document.getElementById("paymentOnlineMoney").value)
+    };
+    arrFullDrinkOrder.push({
+        customerName: document.getElementById("customerName").value,
+        customerPhone: document.getElementById("customerPhone").value,
+        coffee: document.getElementById("coffeeType").value,
+        milk: document.getElementById("milkType").value,
+        size: document.getElementById("size").value,
+        temperature: document.getElementById("tempLevel").value,
+        sugarAmount: document.getElementById("sugars").value,
+    })
+    if(document.getElementById("decaf").checked){
+        arrFullDrinkOrder.push({
+            Decaf: document.getElementById("decaf").value,
+        })
+    }
+    if(document.getElementById("noDecaf").checked){
+        arrFullDrinkOrder.push({
+            decaf: document.getElementById("noDecaf").value,
+        })
+    }
+    if(document.getElementById("paymentPaperMoney").checked){
+        arrFullDrinkOrder.push({
+            paymentMethod: document.getElementById("paymentPaperMoney").value,
+        })
+    }
+    if(document.getElementById("paymentOnlineMoney").checked){
+        arrFullDrinkOrder.push({
+            paymentMethod: document.getElementById("paymentOnlineMoney").value,
+        })
     }
 })
 
@@ -291,35 +320,7 @@ if(document.getElementById("sortMenuBy")== document.getElementById("alphabetical
     selectionSort(foodURL, itemName)
 }
 //Filling the final drink order array so it stores the drink order (i think)
-arrFullDrinkOrder.push({
-    customerName: document.getElementById("customerName").value,
-    customerPhone: document.getElementById("customerPhone").value,
-    coffee: document.getElementById("coffeeType").value,
-    milk: document.getElementById("milkType").value,
-    size: document.getElementById("size").value,
-    temperature: document.getElementById("tempLevel").value,
-    sugarAmount: document.getElementById("sugars").value,
-})
-if(document.getElementById("decaf").checked){
-    arrFullDrinkOrder.push({
-        Decaf: document.getElementById("decaf").value,
-    })
-}
-if(document.getElementById("noDecaf").checked){
-    arrFullDrinkOrder.push({
-        decaf: document.getElementById("noDecaf").value,
-    })
-}
-if(document.getElementById("paymentPaperMoney").checked){
-    arrFullDrinkOrder.push({
-        paymentMethod: document.getElementById("paymentPaperMoney").value,
-    })
-}
-if(document.getElementById("paymentOnlineMoney").checked){
-    arrFullDrinkOrder.push({
-        paymentMethod: document.getElementById("paymentOnlineMoney").value,
-    })
-}
+
 
 
 //adding Full order to final order page
