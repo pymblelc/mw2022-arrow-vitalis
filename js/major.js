@@ -76,25 +76,6 @@ function getFood(url,apikey){
 }
 getFood(foodURL,apikey);
 
-//adding Full order to final order page
-function displayFinalOrder(){
-    for (var i = 0; i<arrFullOrder.length; i++){
-        var tempString = "<div id='" + arrFullOrder[i] + "' > " + arrFullOrder[i] + " </div>"
-        $("#fullOrderArray").append(tempString);
-    }
-    for(var i = 0; i<arrFullDrinkOrder.length; i++){
-        var tempString = "<div id='" + arrFullDrinkOrder[i] + "' > " + arrFullDrinkOrder[i] + " </div>"
-        $("#fullOrderArray").append(tempString);
-    }
-}
-displayFinalOrder();
-
-$("#finalOrderFullSend").click(function() {
-    console.log("Final Order: "+ arrFullOrder + arrFullDrinkOrder);
-
-
-});
-
 //On dropdown change, call getFood again. Make sure to clean the current html
 $('#sortMenuBy').change(function(){
     getFood(foodURL,apikey);
@@ -340,5 +321,23 @@ if(document.getElementById("sortMenuBy")== document.getElementById("alphabetical
 }
 
 
-//adding a send full order 
 
+//adding Full order to final order page
+function displayFinalOrder(){
+    for (var i = 0; i<arrFullOrder.length; i++){
+        var tempString = "<div id='" + arrFullOrder[i] + "' > " + arrFullOrder[i] + " </div>"
+        $("#fullOrderArray").append(tempString);
+    }
+    for(var i = 0; i<arrFullDrinkOrder.length; i++){
+        var tempString = "<div id='" + arrFullDrinkOrder[i] + "' > " + arrFullDrinkOrder[i] + " </div>"
+        $("#fullOrderArray").append(tempString);
+    }
+}
+displayFinalOrder();
+
+//adding a send full order 
+$("#finalOrderFullSend").click(function() {
+    console.log("Final Order: "+ arrFullOrder + arrFullDrinkOrder);
+
+
+});
