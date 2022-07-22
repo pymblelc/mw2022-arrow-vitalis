@@ -82,12 +82,13 @@ function displayFinalOrder(){
         var tempString = "<div id='" + arrFullOrder[i] + "' > " + arrFullOrder[i] + " </div>"
         $("#fullOrderArray").append(tempString);
     }
-    $("fullOrderArray").append()
     for(var i = 0; i<arrFullDrinkOrder.length; i++){
         var tempString = "<div id='" + arrFullDrinkOrder[i] + "' > " + arrFullDrinkOrder[i] + " </div>"
         $("#fullOrderArray").append(tempString);
     }
 }
+displayFinalOrder();
+
 $("#finalOrderFullSend").click(function() {
     console.log("Final Order: "+ arrFullOrder + arrFullDrinkOrder);
 
