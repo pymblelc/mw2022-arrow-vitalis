@@ -169,8 +169,10 @@ $("#aboutUs").hide();
 $("#finalOrderToSend").hide();
 $("#foodContainer").hide();
 $("#itemNotThere").hide();
-$("#fullOrderArray").hide();
+$("#fullFoodOrderArray").hide();
 $("#finalOrderComplete").hide();
+$("#fullDrinkOrderArray").hide();
+$("#finalOrderFullSend").hide();
 
 function resetActiveNav() {
     document.getElementById("homeTab").classList.remove("active")
@@ -191,8 +193,10 @@ $("#homeTab").click(function () {
     $("#searchBarDiv").hide();
     $("#itemNotThere").hide();
     $("#finalOrderToSend").hide();
-    $("#fullOrderArray").hide();
+    $("#fullFoodOrderArray").hide();
     $("#finalOrderComplete").hide();
+    $("#fullDrinkOrderArray").hide();
+    $("#finalOrderFullSend").hide();
 });
 
 $("#ourMenu").click(function () {
@@ -207,8 +211,10 @@ $("#ourMenu").click(function () {
     $("#searchBarDiv").show();
     $("#itemNotThere").hide();
     $("#finalOrderToSend").hide();
-    $("#fullOrderArray").hide();
+    $("#fullFoodOrderArray").hide();
+    $("#fullDrinkOrderArray").hide();
     $("#finalOrderComplete").hide();
+    $("#finalOrderFullSend").hide();
 });
 
 $("#orderForm").click(function () {
@@ -222,8 +228,10 @@ $("#orderForm").click(function () {
     $("#searchBarDiv").hide();
     $("#itemNotThere").hide();
     $("#finalOrderToSend").hide();
-    $("#fullOrderArray").hide();
+    $("#fullFoodOrderArray").hide();
+    $("#fullDrinkOrderArray").hide();
     $("#finalOrderComplete").hide();
+    $("#finalOrderFullSend").hide();
 });
 $("#aboutCafe").click(function () {
     resetActiveNav();
@@ -236,8 +244,10 @@ $("#aboutCafe").click(function () {
     $("#searchBarDiv").hide();
     $("#itemNotThere").hide();
     $("#finalOrderToSend").hide();
-    $("#fullOrderArray").hide();
+    $("#fullFoodOrderArray").hide();
+    $("#fullDrinkOrderArray").hide();
     $("#finalOrderComplete").hide();
+    $("#finalOrderFullSend").hide();
 
 });
 
@@ -252,8 +262,10 @@ $("#finalOrder").click(function () {
     $("#searchBarDiv").hide();
     $("#itemNotThere").hide();
     $("#finalOrderToSend").show();
-    $("#fullOrderArray").show();
+    $("#fullFoodOrderArray").show();
+    $("#fullDrinkOrderArray").show();
     $("#finalOrderComplete").show();
+    $("#finalOrderFullSend").show();
 });
 
 
@@ -334,18 +346,28 @@ function displayFinalFoodOrder(){
 
 function displayFinalDrinkOrder(){
     for(var i = 0; i<arrFullDrinkOrder.length; i++){
-        var tempString = "<div id='" + arrFullDrinkOrder[i].customerName + "'> Name: " + arrFullDrinkOrder[i].customerName + " </div>"
-        tempString += "<div id='" + arrFullDrinkOrder[i].customerPhone + "'> Phone: " + arrFullDrinkOrder[i].customerPhone + " </div>"
-        tempString += "<div id='" + arrFullDrinkOrder[i].coffee + "'> Drink Type: " + arrFullDrinkOrder[i].coffee + " </div>"
-        tempString += "<div id='" + arrFullDrinkOrder[i].milk + "'> Milk Type: " + arrFullDrinkOrder[i].milk + " </div>"
-        tempString += "<div id='" + arrFullDrinkOrder[i].size + "'> Size: " + arrFullDrinkOrder[i].size + " </div>"
-        tempString += "<div id='" + arrFullDrinkOrder[i].temperature + "'> Temperature: " + arrFullDrinkOrder[i].temperature + " </div>"
-        tempString += "<div id='" + arrFullDrinkOrder[i].sugarAmount + "'> Sugars: " + arrFullDrinkOrder[i].sugarAmount + " </div>"
-        tempString += "<div id='" + arrFullDrinkOrder[i].decaf + "'> Decaf? " + arrFullDrinkOrder[i].decaf + " </div>"
-        tempString += "<div id='" + arrFullDrinkOrder[i].paymentMethod + "'> Payment Method:" + arrFullDrinkOrder[i].paymentMethod + " </div>"
+        var tempString = "<div id='" + document.getElementById("customerName").value + "'> Name: " + document.getElementById("customerName").value + " </div>"
+        tempString += "<div id='" + document.getElementById("customerPhone").value + "'> Phone: " + document.getElementById("customerPhone").value + " </div>"
+        tempString += "<div id='" + document.getElementById("coffeeType").value + "'> Drink Type: " + document.getElementById("coffeeType").value + " </div>"
+        tempString += "<div id='" + document.getElementById("milkType").value + "'> Milk Type: " + document.getElementById("milkType").value + " </div>"
+        tempString += "<div id='" + document.getElementById("size").value + "'> Size: " + document.getElementById("size").value + " </div>"
+        tempString += "<div id='" + document.getElementById("tempLevel").value + "'> Temperature: " + document.getElementById("tempLevel").value + " </div>"
+        tempString += "<div id='" + document.getElementById("sugars").value + "'> Sugars: " + document.getElementById("sugars").value + " </div>"
         console.log(arrFullDrinkOrder[i])
-        $("#fullDrinkOrderArray").append(tempString);
     }
+    if(document.getElementById("decaf").checked){
+        tempString += "<div id='" + document.getElementById("decaf").value + "'> Decaf? " + document.getElementById("decaf").value + " </div>"
+    }
+    if(document.getElementById("noDecaf").checked){
+        tempString += "<div id='" + document.getElementById("noDecaf").value + "'> Decaf? " + document.getElementById("noDecaf").value + " </div>"
+    }
+    if(document.getElementById("paymentPaperMoney").checked){
+        tempString += "<div id='" + document.getElementById("paymentPaperMoney").value + "'> Payment Method:  " + document.getElementById("paymentPaperMoney").value + " </div>"
+    }
+    if(document.getElementById("paymentOnlineMoney").checked){
+        tempString += "<div id='" + document.getElementById("paymentOnlineMoney").value + "'> Payment Method: " + document.getElementById("paymentOnlineMoney").value + " </div>"
+    }
+    $("#fullDrinkOrderArray").append(tempString);
 };
 
 $("#finalOrder").click(function(){

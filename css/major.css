@@ -137,3 +137,16 @@ body{
   text-align: center;
 }
 
+#fullFoodOrderArray{
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: 50px;
+  position: absolute;
+}
+
+#fullDrinkOrderArray{
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: 50px;
+  position: absolute;
+}
