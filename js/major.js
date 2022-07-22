@@ -61,9 +61,34 @@ function getFood(url,apikey){
         }
         $("#foodContainer").html(foodItems);
         $("body").css("cursor", "default");
+        for(var i=0; i<response.length; i++){
+            const callback = function() {
+                arrFullOrder.push({
+                    name: this.itemName,
+                    quantity: document.getElementById("quantity" + this._id).value
+                });
+
+                console.log(arrFullOrder);
+            };
+            document.getElementById(response[i]._id).addEventListener("click", callback.bind(response[i]));
+        }
     });
 }
 getFood(foodURL,apikey);
+
+//adding Full order to final order page
+function displayFinalOrder(){
+    for (var i = 0; i<arrFullOrder.length; i++){
+        var tempString = "<div id='" + arrFullOrder[i] + "' > " + arrFullOrder[i] + " </div>"
+        $("#fullOrderArray").append(tempString);
+    }
+    $("fullOrderArray").append()
+}
+$("#finalOrderFullSend").click(function() {
+    console.log("Final Order: "+ arrFullOrder);
+
+
+});
 
 //On dropdown change, call getFood again. Make sure to clean the current html
 $('#sortMenuBy').change(function(){
@@ -106,7 +131,7 @@ var arrSize = ["small", "medium", "large"];
 
 var arrTempLevel = ["iced", "warm", "normal", "extra hot", "super-duper hot"];
 
-var arrFullOrder = [" "]
+var arrFullOrder = [];
 
 //calling arrays to display in drop-down menus
 
@@ -153,6 +178,7 @@ $("#homePage").show();
 $("#viewMenu").hide();
 $("#orderHere").hide();
 $("#aboutUs").hide();
+$("#finalOrderToSend").hide();
 $("#foodContainer").hide();
 $("#itemNotThere").hide();
 
@@ -161,6 +187,7 @@ function resetActiveNav() {
     document.getElementById("ourMenu").classList.remove("active")
     document.getElementById("orderForm").classList.remove("active")
     document.getElementById("aboutCafe").classList.remove("active")
+    document.getElementById("finalOrder").classList.remove("active")
 }
 
 $("#homeTab").click(function () {
@@ -173,6 +200,7 @@ $("#homeTab").click(function () {
     $("#foodContainer").hide();
     $("#searchBarDiv").hide();
     $("#itemNotThere").hide();
+    $("#finalOrderToSend").hide();
 });
 
 $("#ourMenu").click(function () {
@@ -186,6 +214,7 @@ $("#ourMenu").click(function () {
     $("#foodContainer").css("display","flex");
     $("#searchBarDiv").show();
     $("#itemNotThere").hide();
+    $("#finalOrderToSend").hide();
 });
 
 $("#orderForm").click(function () {
@@ -198,6 +227,7 @@ $("#orderForm").click(function () {
     $("#foodContainer").hide();
     $("#searchBarDiv").hide();
     $("#itemNotThere").hide();
+    $("#finalOrderToSend").hide();
 });
 $("#aboutCafe").click(function () {
     resetActiveNav();
@@ -209,7 +239,21 @@ $("#aboutCafe").click(function () {
     $("#foodContainer").hide();
     $("#searchBarDiv").hide();
     $("#itemNotThere").hide();
+    $("#finalOrderToSend").hide();
 
+});
+
+$("#finalOrder").click(function () {
+    resetActiveNav();
+    document.getElementById("finalOrder").classList.add("active")
+    $("#viewMenu").hide();
+    $("#orderHere").hide();
+    $("#aboutUs").hide();
+    $("#homePage").hide();
+    $("#foodContainer").hide();
+    $("#searchBarDiv").hide();
+    $("#itemNotThere").hide();
+    $("#finalOrderToSend").show();
 });
 
 
@@ -246,11 +290,6 @@ $("#completeOrder").click(function () {
 if(document.getElementById("sortMenuBy")== document.getElementById("alphabetical")){
     selectionSort(foodURL, itemName)
 }
-
-//adding food items to the order
- $(document.getElementsByClassName("addToCustomer")).click(function() {
-    console.log()
- })
 
 
 //adding a send full order 
